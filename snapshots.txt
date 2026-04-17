@@ -1,0 +1,34 @@
+Initial Process Table
+PID PPID STATE EXIT_STATUS
+----------------------------------------------
+1 0 RUNNING -
+
+Thread 0 calls pm_fork 1
+PID PPID STATE EXIT_STATUS
+----------------------------------------------
+1 0 RUNNING -
+2 1 RUNNING -
+
+Thread 1 calls pm_fork 1
+PID PPID STATE EXIT_STATUS
+----------------------------------------------
+1 0 RUNNING -
+2 1 RUNNING -
+3 1 RUNNING -
+
+Thread 0 calls pm_fork 1
+Thread 0 calls pm_wait 1 -1
+PID PPID STATE EXIT_STATUS
+----------------------------------------------
+1 0 WAITING -
+2 1 RUNNING -
+3 1 RUNNING -
+4 1 RUNNING -
+
+Thread 1 calls pm_exit 2 10
+PID PPID STATE EXIT_STATUS
+----------------------------------------------
+1 0 RUNNING -
+3 1 RUNNING -
+4 1 RUNNING -
+
